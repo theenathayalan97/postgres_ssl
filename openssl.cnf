@@ -1,0 +1,11 @@
+[ ca ]
+default_ca = myca
+
+[ myca ]
+certificate = /home/theena/Documents/cloud/postgresql_ssl/certs/myCA.crt
+private_key = /home/theena/Documents/cloud/postgresql_ssl/certs/myCA.key
+crl_dir = /home/theena/Documents/cloud/postgresql_ssl/crl
+database = /home/theena/Documents/cloud/postgresql_ssl/index.txt
+new_certs_dir = /home/theena/Documents/cloud/postgresql_ssl/newcerts
+serial = /home/theena/Documents/cloud/postgresql_ssl/serial
+crl = /home/theena/Documents/cloud/postgresql_ssl/crl/myCA.crl

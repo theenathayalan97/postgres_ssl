@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/Documents/cloud/postgresql_ssl/certs:/certs
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_SSL_CERT_FILE=/certs/postgresdb.crt
+      - POSTGRES_SSL_KEY_FILE=/certs/postgresdb.key
+      - POSTGRES_SSL_CA_FILE=/certs/myCA.crt
+    command: >
+      postgres -c ssl=on
+               -c ssl_cert_file=/certs/postgresdb.crt
+               -c ssl_key_file=/certs/postgresdb.key
+               -c ssl_ca_file=/certs/myCA.crt
